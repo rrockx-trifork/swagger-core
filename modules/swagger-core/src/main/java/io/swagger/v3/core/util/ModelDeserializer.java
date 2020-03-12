@@ -20,6 +20,8 @@ import io.swagger.v3.oas.models.media.ObjectSchema;
 import io.swagger.v3.oas.models.media.PasswordSchema;
 import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.media.StringSchema;
+import io.swagger.v3.oas.models.media.URISchema;
+import io.swagger.v3.oas.models.media.URLSchema;
 import io.swagger.v3.oas.models.media.UUIDSchema;
 import org.apache.commons.lang3.StringUtils;
 
@@ -65,6 +67,10 @@ public class ModelDeserializer extends JsonDeserializer<Schema> {
                         schema = Json.mapper().convertValue(node, DateTimeSchema.class);
                     } else if ("email".equals(format)) {
                         schema = Json.mapper().convertValue(node, EmailSchema.class);
+                    } else if ("uri".equals(format)) {
+                        schema = Json.mapper().convertValue(node, URISchema.class);
+                    } else if ("url".equals(format)) {
+                        schema = Json.mapper().convertValue(node, URLSchema.class);
                     } else if ("password".equals(format)) {
                         schema = Json.mapper().convertValue(node, PasswordSchema.class);
                     } else if ("uuid".equals(format)) {

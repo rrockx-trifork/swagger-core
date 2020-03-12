@@ -11,6 +11,8 @@ import io.swagger.v3.oas.models.media.IntegerSchema;
 import io.swagger.v3.oas.models.media.NumberSchema;
 import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.media.StringSchema;
+import io.swagger.v3.oas.models.media.URISchema;
+import io.swagger.v3.oas.models.media.URLSchema;
 import io.swagger.v3.oas.models.media.UUIDSchema;
 import org.apache.commons.lang3.StringUtils;
 
@@ -53,13 +55,13 @@ public enum PrimitiveType {
     URI(java.net.URI.class, "uri") {
         @Override
         public Schema createProperty() {
-            return new StringSchema().format("uri");
+            return new URISchema();
         }
     },
     URL(java.net.URL.class, "url") {
         @Override
         public Schema createProperty() {
-            return new StringSchema().format("url");
+            return new URLSchema();
         }
     },
     EMAIL(String.class, "email") {
